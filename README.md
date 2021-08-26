@@ -14,3 +14,9 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+mainブランチは状態管理パッケージを使わずに実装した
+
+riverpodブランチはRiverpodのStateProviderを使って実装した
+
+riverpod-state-notiferブランチはRiverpodとStateNotifierを使った実装をした
