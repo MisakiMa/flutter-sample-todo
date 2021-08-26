@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:sample_todo/todo_add_page.dart';
 import 'package:uuid/uuid.dart';
 
@@ -15,6 +16,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        textTheme:
+            GoogleFonts.sawarabiMinchoTextTheme(Theme.of(context).textTheme),
       ),
       home: MyHomePage(title: 'TodoList'),
     );
