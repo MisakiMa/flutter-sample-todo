@@ -3,10 +3,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:sample_todo/todo.dart';
 import 'package:sample_todo/todo_add_page.dart';
-import 'package:sample_todo/todo_list_state.dart';
-import 'package:uuid/uuid.dart';
-
-final _uuid = Uuid();
 
 void main() {
   runApp(ProviderScope(child: MyApp()));
@@ -34,8 +30,7 @@ class MyHomePage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final todoList = ref.watch(todoListState);
-    final list = ref.watch(todoListState.select((value) => value.state));
+    final list = ref.watch(todoList.select((value) => value));
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
@@ -49,10 +44,9 @@ class MyHomePage extends HookConsumerWidget {
                 return Dismissible(
                   key: Key(todo.id),
                   onDismissed: (direction) {
-                    list.removeAt(index);
-                    todoList.state = list;
+                    ref.read(todoList.notifier).remove(todo);
                     ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text(todo.text + ' dismissed')));
+                        SnackBar(content: Text(todo.text + ' を削除しました')));
                   },
                   child: ListTile(
                     title: Text(todo.text),
