@@ -19,4 +19,4 @@ mainブランチは状態管理パッケージを使わずに実装した
 
 riverpodブランチはRiverpodのStateProviderを使って実装した
 
-riverpod-state-notiferブランチはRiverpodとStateNotifierを使った実装をした
+riverpod-state-notiferブランチはRiverpodとStateNotifierを使って実装した
